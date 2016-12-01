@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html ng-app="musicApp">
+	<head>
+		<title>Music App</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="Scripts/angular.js"></script>
+		<!-- <script type="text/javascript" src="Scripts/angular-resource.js"></script> -->
+		<script type="text/javascript" src="Scripts/angular-route.js"></script>
+		<script type="text/javascript" src="app/app.js"></script>
+		<script type="text/javascript" src="controllers/PageController.js"></script>
+		<script type="text/javascript" src="controllers/ArtistDetailsController.js"></script>
+		<script type="text/javascript" src="controllers/AddArtistController.js"></script>
+		<script type="text/javascript" src="filters/status.js"></script>
+		<script type="text/javascript" src="services/artistData.js"></script>
+		<link rel="stylesheet" type="text/css" href="Styles/Styles.css">
+	</head>
+	<body>
+		<div ng-controller="PageController">
+			<div class="navbar navbar-default">
+		      <div class="container">
+		        <div class="navbar-header">
+		          <a href="../" class="navbar-brand">Music Artists</a>
+		        </div>
+		        <div class="navbar-collapse collapse" id="navbar-main">
+		          <ul class="nav navbar-nav">
+		            <li>
+		            	<a href="addArtist.html">Add Artist</a>
+		            </li>
+		          </ul>
+		        </div>
+		      </div>
+	    	</div>
+	    	<div class="container clearfix" ng-controller="AddArtistController">
+	    		<div class="row">
+		      		<div class="col-md-6">
+		              	<button class="btn btn-primary" id="top" ng-click="scrollTo('bottom')">Back to bottom</button>
+		      			<form class="form-horizontal" name="newArtistForm">
+		    				<h1>Artist</h1>
+			                <fieldset>
+			                  <legend>Main Information</legend>
+				                  <div class="form-group">
+				                    <label for="name" class="col-lg-2 control-label">Name</label>
+				                    <div class="col-lg-10">
+				                      <input type="text" required="required" class="form-control form-validation" id="name" placeholder="name" ng-model="artist.name" />
+				                    </div>
+				                  </div>
+				                  <div class="form-group">
+				                    <label for="image" class="col-lg-2 control-label">Image</label>
+				                    <div class="col-lg-10">
+				                      <input type="text" required="required" ng-pattern="/\.(gif|jpg|jpeg|tiff|png)$/i" class="form-control form-validation" id="image" placeholder="Image URL" ng-model="artist.image" />
+				                    </div>
+				                  </div>
+				                  <div class="form-group">
+				                    <label for="date" class="col-lg-2 control-label">Created</label>
+				                    <div class="col-lg-10">
+				                      <input type="text" required="required" ng-pattern="/\d\d/\d\d/\d\d\d\d/" class="form-control form-validation" id="date" placeholder="Date Created (dd/mm/yyyy)" ng-model="artist.created" />
+				                    </div>
+				                  </div>
+				                  <fieldset>
+				                  	<legend>Additional Information</legend>
+				                  	 <div class="form-group">
+					                    <label for="location" class="col-lg-2 control-label">Location</label>
+					                    <div class="col-lg-10">
+					                      <input type="text" class="form-control" id="location" placeholder="Location" ng-model="artist.additionalInformation.location" />
+					                    </div>
+					                 </div> 
+					                 <div class="form-group">
+					                    <label for="albums" class="col-lg-2 control-label">Albums</label>
+					                    <div class="col-lg-10">
+					                      <input type="text" class="form-control" id="albums" placeholder="Albums" ng-model="artist.additionalInformation.albums" />
+					                    </div>
+					                 </div>
+					                  <div class="form-group">
+					                    <label for="singles" class="col-lg-2 control-label">singles</label>
+					                    <div class="col-lg-10">
+					                      <input type="text" class="form-control" id="singles" placeholder="Singles" ng-model="artist.additionalInformation.singles" />
+					                    </div>
+					                 </div>
+				              	  </fieldset>
+				                  <div class="form-group">
+				                    <div class="pull-right">
+				                      <button class="btn btn-primary" ng-click="saveArtist(artist, newArtistForm)" ng-disabled="newArtistForm.$invalid">Save</button>
+				                      <butto class="btn btn-default" ng-click="cancel()">Cancel</button>
+				                    </div>
+				                  </div>
+			                </fieldset>
+		              	</form>
+		              	<button class="btn btn-primary" id="bottom" ng-click="scrollTo('top')">Back to top</button>
+						<div class="container-fluid text-center">    
+						  <div class="row content">
+						    <div class="col-sm-2">
+						    </div>
+						    <div class="col-sm-8 text-left"> 
+						      <h4>How to create music player for AngularJs</h4>
+						      <h5 class="text-center book small">
+								Saturday, November 26, 2016
+							  </h5>
+						      <p class="text-center">In this tutorial I am going to show you how can we create music player for AngularJs. I have created a special AngularJs module called angular-soundmanager2 for sake of this tutorial which means difficult work is already done for you!</p>
+						      <hr>
+						      <h3 class="text-center">Our music player is going to support following features:</h3>
+						      <ul>
+						      	<li>Play, Pause and Stop track</li>
+						      	<li>Next and Prev track</li>
+						      	<li>Seek track progress</li>
+						      	<li>Change and mute volume</li>
+						      	<li>Add single track to Playlist</li>
+						      	<li>Add all tracks, Repeat, Clear Playlist</li>
+						      </ul>
+						    </div>
+						    <div class="col-sm-2">
+				
+						    </div>
+						  </div>
+						</div>
+		      		</div>
+		      		<div class="col-md-6 image-container">
+		      			<img src="" ng-src="{{artist.image}}" />
+		      		</div>
+		      	</div>
+    		</div>
+    		<hr/>
+	    	<footer class="text-center">
+	    		<main> 
+	    			Author: {{ author }}  Date: {{ date.year }}/{{ date.month }}/{{ date.day }}
+	    		</main>
+	    	</footer>
+		</div>
+	</body>
+</html>

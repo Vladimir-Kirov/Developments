@@ -1,0 +1,24 @@
+.image-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.blue-text {
+    color: #2c3e50;
+}
+
+.grey-background {
+	background-color: grey;
+}
+
+.grey-background a {
+	color: white;
+}
+
+input.ng-invalid.ng-dirty.form-validation {
+	background-color: pink;
+}
+
+input.ng-valid.ng-dirty.form-validation {
+	background-color: greenyellow;
+}

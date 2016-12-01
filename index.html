@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Music App</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="Scripts/angular.js"></script>
+		<!-- <script type="text/javascript" src="Scripts/angular-resource.js"></script> -->
+		<script type="text/javascript" src="Scripts/angular-route.js"></script>
+		<script type="text/javascript" src="app/app.js"></script>
+		<script type="text/javascript" src="controllers/PageController.js"></script>
+		<script type="text/javascript" src="controllers/ArtistDetailsController.js"></script>
+		<script type="text/javascript" src="controllers/AddArtistController.js"></script>
+		<script type="text/javascript" src="filters/status.js"></script>
+		<script type="text/javascript" src="services/artistData.js"></script>
+		<link rel="stylesheet" type="text/css" href="Styles/Styles.css">
+	</head>
+	<body ng-app="musicApp" ng-controller="PageController">
+		<div class="navbar navbar-default">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <a href="../" class="navbar-brand">Music Artists</a>
+	        </div>
+	        <div class="navbar-collapse collapse" id="navbar-main">
+	          <ul class="nav navbar-nav">
+	            <li>
+	            	<a href="#/addArtist">Add Artist</a>
+	            </li>
+	          </ul>
+	        </div>
+	      </div>
+    	</div>
+    	<div class="container" ng-view>
+    		
+    	</div>
+    	<footer class="text-center">
+    		<hr/>
+    		<main> 
+    			Author: {{ author }}  Date: {{ date.year }}/{{ date.month }}/{{ date.day }}
+    		</main>
+    	</footer>
+	</body>
+</html>
